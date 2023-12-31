@@ -1,0 +1,76 @@
+{
+    "nodes": [
+      {
+        "id": "John",
+        "nodeColor": "hsl(245, 70%, 50%)"
+      },
+      {
+        "id": "Raoul",
+        "nodeColor": "hsl(99, 70%, 50%)"
+      },
+      {
+        "id": "Jane",
+        "nodeColor": "hsl(50, 70%, 50%)"
+      },
+      {
+        "id": "Marcel",
+        "nodeColor": "hsl(226, 70%, 50%)"
+      },
+      {
+        "id": "Ibrahim",
+        "nodeColor": "hsl(325, 70%, 50%)"
+      },
+      {
+        "id": "Junko",
+        "nodeColor": "hsl(139, 70%, 50%)"
+      }
+    ],
+    "links": [
+      {
+        "source": "Junko",
+        "target": "Marcel",
+        "value": 45
+      },
+      {
+        "source": "Junko",
+        "target": "John",
+        "value": 24
+      },
+      {
+        "source": "John",
+        "target": "Ibrahim",
+        "value": 40
+      },
+      {
+        "source": "John",
+        "target": "Marcel",
+        "value": 29
+      },
+      {
+        "source": "John",
+        "target": "Raoul",
+        "value": 116
+      },
+      {
+        "source": "Raoul",
+        "target": "Ibrahim",
+        "value": 122
+      },
+      {
+        "source": "Raoul",
+        "target": "Marcel",
+        "value": 177
+      },
+      {
+        "source": "Ibrahim",
+        "target": "Jane",
+        "value": 79
+      },
+      {
+        "source": "Marcel",
+        "target": "Jane",
+        "value": 180
+      }
+    ]
+  }
+  
