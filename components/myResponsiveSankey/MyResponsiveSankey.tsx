@@ -57,10 +57,6 @@ export const MyResponsiveSankey = () => {
         ],
     };
 
-
-
-      //console.log('data:', data);
-
     return (
         <ResponsiveSankey
             data={data}
