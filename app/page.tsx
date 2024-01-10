@@ -6,14 +6,14 @@ export default function HomePage() {
   return (
     <main className="flex flex-col items-center p-24">
       <span className='text-5xl'>
-        Sonar Analizer
+        SonarQUBE Analyzer
       </span>
 
-      <Link href={'/about'}>About Page</Link>
+      <Link href={'/about'}>More Details</Link>
 
-      <h1 className='text-2xl pt-6'>Distribución de los hallazgos en SonarQube por Squad</h1>
+      <h1 className='text-2xl pt-6'>SonarQUBE Findings by Category/Squad</h1>
 
-      <div className='container text-center h-96 w-full'>
+      <div className='text-center h-lvh w-full'>
         <MyResponsiveSankey />
       </div>
 

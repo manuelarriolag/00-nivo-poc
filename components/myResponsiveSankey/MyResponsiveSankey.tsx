@@ -1,6 +1,7 @@
 "use client"
 
 import { ResponsiveSankey } from '@nivo/sankey';
+import { Domain, Metric, Squad } from './interfaces';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -10,52 +11,54 @@ import { ResponsiveSankey } from '@nivo/sankey';
 
 export const MyResponsiveSankey = () => {
 
-    const countMetrics = 3;
+    const countMetrics = 8;
     const total = (countMetrics * 100);
     const pctMetrics = (total/countMetrics);
     const pct25 = (pctMetrics * 0.25);
     const pct50 = (pctMetrics * 0.50);
 
-    const nodeIndex = {
-        sourceNode: 'Findings',
-        metric1: 'Reliability',
-        metric2: 'Security',
-        metric3: 'Maintainability',
-        squadProspects: 'Prospects',
-        squadSs1: 'SS1',
-        squadSs2: 'SS2',
-    }
-
     const data = {
         nodes: [
-            { id: nodeIndex.sourceNode, nodeColor: "hsl(262, 70%, 50%)" },
-            
-            { id: nodeIndex.metric1, nodeColor: "hsl(295, 70%, 50%)" },
-            { id: nodeIndex.metric2, nodeColor: "hsl(144, 70%, 50%)" },
-            { id: nodeIndex.metric3, nodeColor: "hsl(151, 70%, 50%)" },
-            
-            { id: nodeIndex.squadProspects, nodeColor: "hsl(300, 70%, 50%)" },
-            { id: nodeIndex.squadSs1, nodeColor: "hsl(133, 70%, 50%)" },
-            { id: nodeIndex.squadSs2, nodeColor: "hsl(102, 70%, 50%)" },
+            { id: Domain.Complexity,         nodeColor: "hsl(295, 70%, 50%)" },
+            { id: Domain.Coverage,           nodeColor: "hsl(144, 70%, 50%)" },
+            { id: Domain.Duplications,       nodeColor: "hsl(151, 70%, 50%)" },
+            { id: Domain.Issues,             nodeColor: "hsl(295, 70%, 50%)" },
+            { id: Domain.Maintainability,    nodeColor: "hsl(300, 70%, 50%)" },
+            { id: Domain.Reliability,        nodeColor: "hsl(173, 70%, 50%)" },
+            { id: Domain.Security,           nodeColor: "hsl(220, 70%, 50%)" },
+            { id: Domain.SecurityReview,     nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Empty,               nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Disbursement,        nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Gip,                 nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Martech,             nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Offers1,             nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Offers2,             nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.PersonInput,         nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Prospects,           nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.SquadsDeExperiencia, nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Ss1,                 nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Ss2,                 nodeColor: "hsl(180, 70%, 50%)" },
+            { id: Squad.Use,                 nodeColor: "hsl(180, 70%, 50%)" },
         ],
         links: [
-            { source: nodeIndex.sourceNode, target: nodeIndex.metric1, value: pctMetrics },
-            { source: nodeIndex.sourceNode, target: nodeIndex.metric2, value: pctMetrics },
-            { source: nodeIndex.sourceNode, target: nodeIndex.metric3, value: pctMetrics },
+            { target: Domain.Complexity,        source: Squad.Empty,                value: 1 },
             
-            { source: nodeIndex.metric1, target: nodeIndex.squadProspects, value: pct25 },
-            { source: nodeIndex.metric1, target: nodeIndex.squadSs1, value: pct25 },
-            { source: nodeIndex.metric1, target: nodeIndex.squadSs2, value: pct50 },
-
-            { source: nodeIndex.metric2, target: nodeIndex.squadProspects, value: pct50 },
-            { source: nodeIndex.metric2, target: nodeIndex.squadSs1, value: pct25 },
-            { source: nodeIndex.metric2, target: nodeIndex.squadSs2, value: pct25 },
-
-            { source: nodeIndex.metric3, target: nodeIndex.squadProspects, value: pct25 },
-            { source: nodeIndex.metric3, target: nodeIndex.squadSs1, value: pct50 },
-            { source: nodeIndex.metric3, target: nodeIndex.squadSs2, value: pct25 },
+            { target: Domain.Coverage,          source: Squad.Disbursement,         value: 1 },
+            
+            { target: Domain.Duplications,      source: Squad.Gip,                  value: 1 },
+            
+            { target: Domain.Issues,            source: Squad.Martech,              value: 1 },
+            
+            { target: Domain.Maintainability,   source: Squad.Offers1,              value: 1 },
+            
+            { target: Domain.Reliability,       source: Squad.Offers2,              value: 1 },
+            
+            { target: Domain.Security,          source: Squad.PersonInput,          value: 1 },
+            
         ],
     };
+
+
 
     return (
         <ResponsiveSankey
